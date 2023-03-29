@@ -1,0 +1,9 @@
+{
+    "name": "jordan/videogame",
+    "autoload": {
+        "psr-4": {
+            "Videogame\\": "src/"
+        }
+    },
+    "require": {}
+}
