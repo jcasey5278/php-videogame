@@ -7,7 +7,7 @@ use Videogame\Attributes\Rage;
 class Human extends Creature {
     protected $name = "George";
     protected $damage = 1;
-    protected $health = 20;
+    protected $health = 200;
     protected $threshhold;
 
     public function __construct() {
@@ -16,7 +16,7 @@ class Human extends Creature {
 
 
     public function takeDamage(float $damage) {
-        $this->health -= $damage;
+        parent::takeDamage($damage);
 
         if ($this->health <= $this->threshhold) {
             $attribute = new Rage();

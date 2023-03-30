@@ -7,7 +7,7 @@ use Videogame\Interfaces\Attacks;
 use Videogame\Interfaces\Attributable;
 use Videogame\Interfaces\Attribute;
 use Videogame\Interfaces\Combat;
-use Videogame\Interfaces\Weapon;
+use Videogame\Weapons\Weapon;
 
 abstract class Creature implements Combat, Attacks, Attributable {
 
@@ -19,6 +19,9 @@ abstract class Creature implements Combat, Attacks, Attributable {
     protected $attributes = [];
 
     public function passAttributes(): array {
+        if ($this->weapon instanceof Attributable) {
+            return $this->weapon->passAttributes();
+        }
         return [new NullAttribute()];
     }
 

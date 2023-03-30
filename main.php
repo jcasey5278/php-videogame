@@ -8,12 +8,12 @@ $characterFactory = new CharacterFactory();
 
 $creatures = [
     [
-        'creature' => 'zombiedog',
+        'creature' => 'gamewatch',
         'weapon' => '',
         'attributes' => []
     ],
     [
-        'creature' => 'elf',
+        'creature' => 'werewolf',
         'weapon' => '',
         'attributes' => []
     ]

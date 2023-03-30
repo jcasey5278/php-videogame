@@ -1,28 +1,27 @@
 <?php
+
 namespace Videogame\Creatures;
 
 use Videogame\Attributes\Bleed;
-use Videogame\Interfaces\Weapon;
+use Videogame\Weapons\Weapon;
 use Videogame\Weapons\Fangs;
 
-class ZombieDog extends Zombie{
+class ZombieDog extends Zombie {
 
     protected $name = "Fluffy";
 
-    public function passAttributes(): array
-    {
+    public function passAttributes(): array {
         $attributes = [];
-        if(rand()%2){
+        if (rand() % 2) {
             $attributes[] = new Bleed();
         }
         return $attributes;
     }
 
-    public function setWeapon(Weapon $weapon)
-    {
-        if($weapon instanceof Fangs){
+    public function setWeapon(Weapon $weapon) {
+        if ($weapon instanceof Fangs) {
             $this->weapon = $weapon;
-        }else{
+        } else {
             parent::setWeapon($weapon);
         }
     }

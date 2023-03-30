@@ -1,10 +1,11 @@
 <?php
+
 namespace Videogame\Weapons;
 
 use Videogame\Interfaces\Attacks;
-use Videogame\Interfaces\Weapon;
+use Videogame\Weapons\Weapon;
 
-class RustedSword {//implements Attacks,Weapon{
+class RustedSword { //implements Attacks,Weapon{
 
 
 }

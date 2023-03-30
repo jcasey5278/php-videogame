@@ -2,39 +2,19 @@
 
 namespace Videogame\Weapons;
 
-use Videogame\Interfaces\Attacks;
-use Videogame\Interfaces\Weapon;
+use Videogame\Weapons\Weapon;
 
-class Fist implements Weapon,Attacks{
+class Fist extends Weapon {
 
-    public function getDamage()
-    {
+    public function getDamage() {
         return 1;
     }
 
-    public function getDurability()
-    {
-        return 9999;
+    public function setDurabilty(float $durability) {
+        //Fists do not have durability changed
     }
 
-    public function setDurabilty(float $durability){
-        
+    public function attack(): float {
+        return $this->getDamage();
     }
-
-    public function attack():float
-    {
-        $this->getDamage();
-    }
-
-    public function listAttacks():array
-    {
-        return [];
-    }
-    
-
-    public function callAttack($attack)
-    {
-        
-    }
-
 }
