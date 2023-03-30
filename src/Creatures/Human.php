@@ -2,9 +2,34 @@
 
 namespace Videogame\Creatures;
 
-class Human extends Creature{
-    protected $name = "George";
-    protected $damage = 3;
-    protected $health = 20;
+use Videogame\Attributes\Rage;
 
+class Human extends Creature {
+    protected $name = "George";
+    protected $damage = 1;
+    protected $health = 20;
+    protected $threshhold;
+
+    public function __construct() {
+        $this->threshhold = $this->health * 0.4;
+    }
+
+
+    public function takeDamage(float $damage) {
+        $this->health -= $damage;
+
+        if ($this->health <= $this->threshhold) {
+            $attribute = new Rage();
+
+            $enraged = false;
+            foreach ($this->attributes as $attr) {
+                if ($attr->getName() == $attribute->getName()) {
+                    $enraged = true;
+                }
+            }
+            if (!$enraged) {
+                parent::addAttribute($attribute);
+            }
+        }
+    }
 }
