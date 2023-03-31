@@ -17,6 +17,10 @@ class CharacterFactory{
         $this->attributeFactory = new AttributeFactory();
     }
 
+    public function setCreatureFactory(CreatureFactory $factory){
+        $this->creatureFactory = $factory;
+    }
+
     public function create(array $entry){
         $creature = $this->creatureFactory->build($entry['creature']);
         $weapon = $this->weaponFactory->build($entry['weapon']);

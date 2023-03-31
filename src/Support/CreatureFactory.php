@@ -3,6 +3,7 @@
 namespace Videogame\Support;
 
 use Exception;
+use Videogame\Creatures\Creature;
 use Videogame\Creatures\Vampire;
 use Videogame\Creatures\Elf;
 use Videogame\Creatures\GameWatch;
@@ -13,7 +14,7 @@ use Videogame\Creatures\ZombieDog;
 
 class CreatureFactory {
 
-    public function build($type) {
+    public function build($type):Creature {
         switch (strtolower($type)) {
             case "human":
                 return new Human();

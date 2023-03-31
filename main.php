@@ -1,6 +1,7 @@
 <?php
 
 use Videogame\Support\CharacterFactory;
+use Videogame\Support\DwarvenFactory;
 
 require_once('vendor/autoload.php');
 
@@ -8,18 +9,19 @@ $characterFactory = new CharacterFactory();
 
 $creatures = [
     [
-        'creature' => 'gamewatch',
+        'creature' => 'shadowdwarf',
         'weapon' => '',
         'attributes' => []
     ],
     [
-        'creature' => 'werewolf',
+        'creature' => 'lightdwarf',
         'weapon' => '',
         'attributes' => []
     ]
 ];
-$matt = 0;
-$george = 0;
+$dwarfFactory = new DwarvenFactory();
+$characterFactory->setCreatureFactory($dwarfFactory);
+
 $i = 0;
 while ($i < 1000) {
     $players = [];
@@ -39,11 +41,11 @@ while ($i < 1000) {
                 $opponent = $players[$index == 0];
             }
             if (count($player->listAttacks()) > 1) {
-                // $a = readline("Which attack should " . $player->getName() . " do? \n\r"
-                // . implode(" "
-                // ,array_keys($player->listAttacks()) 
-                // ). ":");
-                $a = rand() % 3 == 0 ? "pound" : (rand() % 2 == 0 ? 'smash' : 'swing');
+                $a = readline("Which attack should " . $player->getName() . " do? \n\r"
+                . implode(" "
+                ,array_keys($player->listAttacks()) 
+                ). ":");
+                // $a = rand() % 3 == 0 ? "pound" : (rand() % 2 == 0 ? 'smash' : 'swing');
                 $player->callAttack($a);
             }
             $opponent->takeDamage($player->attack());
@@ -52,7 +54,6 @@ while ($i < 1000) {
                 $opponent->addAttribute($effect);
             }
             $player->tick();
-            // var_dump($player);
         }
     }
     $i++;
