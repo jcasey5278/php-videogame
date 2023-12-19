@@ -35,4 +35,8 @@ class Nighttime implements Attribute {
     public function expired(): bool {
         return $this->expires <= 0;
     }
+
+    public function setExpiry($expire):void{
+        $this->expires = $expire;
+    }
 }

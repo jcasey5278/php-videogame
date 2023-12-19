@@ -8,7 +8,6 @@ class LightDwarf extends Creature{
     protected $health = 100;
     protected $name = "Larry";
 
-
     public function takeDamage(float $damage)
     {
         if(rand(0,99)%2 == 0){

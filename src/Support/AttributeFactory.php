@@ -4,6 +4,7 @@ namespace Videogame\Support;
 
 use Videogame\Attributes\Bleed;
 use Videogame\Attributes\NullAttribute;
+use Videogame\Attributes\Reflect;
 
 class AttributeFactory{
 
@@ -11,6 +12,8 @@ class AttributeFactory{
         switch(strtolower($type)){
             case "bleed":
                 return new Bleed();
+            case "reflect":
+                return new Reflect();
             default:
                 return new NullAttribute();
         }

@@ -5,5 +5,6 @@ interface Attributable{
 
     public function addAttribute(Attribute $attribute);
     public function removeAttribute(String $name);
-    public function passAttributes():array;
+    public function getPassedAttributes():array;
+    public function setDisabledPassedAttributes(bool $disabled);
 }

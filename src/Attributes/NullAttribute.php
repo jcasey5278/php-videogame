@@ -5,6 +5,8 @@ use Videogame\Interfaces\Attribute;
 
 class NullAttribute implements Attribute{
 
+    protected $expires;
+
     public function affect($object){
         return '';
     }
@@ -19,4 +21,7 @@ class NullAttribute implements Attribute{
         return true;
     }
 
+    public function setExpiry($expire):void{
+        $this->expires = 0;
+    }
 }

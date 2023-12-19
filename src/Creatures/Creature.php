@@ -17,12 +17,25 @@ abstract class Creature implements Combat, Attacks, Attributable {
     protected $attacks = [];
     protected $weapon;
     protected $attributes = [];
+    protected $disabledPassedAttributes;
 
     public function passAttributes(): array {
         if ($this->weapon instanceof Attributable) {
-            return $this->weapon->passAttributes();
+            return $this->weapon->getPassedAttributes();
         }
         return [new NullAttribute()];
+    }
+
+    public function setDisabledPassedAttributes(bool $disabled){
+        $this->disabledPassedAttributes = $disabled;
+    }
+    
+    public function getPassedAttributes():array{
+        $attributes = [];
+        if(!$this->disabledPassedAttributes){
+            $attributes = $this->passAttributes();
+        }
+        return $attributes;
     }
 
     public function getHealth() {

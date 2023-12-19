@@ -7,6 +7,7 @@ use Videogame\Creatures\Creature;
 use Videogame\Creatures\Vampire;
 use Videogame\Creatures\Elf;
 use Videogame\Creatures\GameWatch;
+use Videogame\Creatures\Giant;
 use Videogame\Creatures\Human;
 use Videogame\Creatures\Werewolf;
 use Videogame\Creatures\Zombie;
@@ -30,8 +31,11 @@ class CreatureFactory {
                 return new Werewolf();
             case "gamewatch":
                 return new GameWatch();
+            case "giant":
+                return new Giant();
             case "zombiewarrior":
                 // return new ZombieWarrior();
+                
             default:
                 throw new Exception("Creature does not exist.");
         }

@@ -30,6 +30,10 @@ class Bleed implements Attribute{
         return $this->object->getHealth() * 0.1;
     }
 
+    public function setExpiry($expire):void{
+        $this->expires = $expire;
+    }
+
     public function getName():string{
         return 'bleed';
     }

@@ -9,11 +9,14 @@ use Videogame\Weapons\Fangs;
 class ZombieDog extends Zombie {
 
     protected $name = "Fluffy";
+    protected $health = 2000;
 
     public function passAttributes(): array {
         $attributes = [];
         if (rand() % 2) {
-            $attributes[] = new Bleed();
+            $attr =  new Bleed();
+            $attr->setExpiry(10);
+            $attributes[] = $attr;
         }
         return $attributes;
     }

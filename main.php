@@ -10,13 +10,13 @@ $characterFactory = new CharacterFactory();
 $creatures = [
     [
         'creature' => 'shadowdwarf',
-        'weapon' => '',
+        'weapon' => 'fangs',
         'attributes' => []
     ],
     [
-        'creature' => 'lightdwarf',
+        'creature' => 'zombiedog',
         'weapon' => '',
-        'attributes' => []
+        'attributes' => ['']
     ]
 ];
 $dwarfFactory = new DwarvenFactory();
@@ -33,7 +33,7 @@ while ($i < 1000) {
             if (count($players) < 2) {
                 break 2;
             }
-            if ($player->getHealth() < 0) {
+            if ($player->getHealth() <= 0) {
                 unset($players[$index]);
                 break;
             }
@@ -48,12 +48,14 @@ while ($i < 1000) {
                 // $a = rand() % 3 == 0 ? "pound" : (rand() % 2 == 0 ? 'smash' : 'swing');
                 $player->callAttack($a);
             }
-            $opponent->takeDamage($player->attack());
-            foreach ($player->passAttributes() as $effect) {
+            $player->tick();
+            $damage = $player->attack();
+            echo $player->getName() . " does : " . $damage . "\n\r";
+            $opponent->takeDamage($damage);
+            foreach ($player->getPassedAttributes() as $effect) {
                 // echo $player->getName() . " is applying " . $effect->getName(). " to ". $opponent->getName() . "\n\r";
                 $opponent->addAttribute($effect);
             }
-            $player->tick();
         }
     }
     $i++;

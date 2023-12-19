@@ -14,12 +14,16 @@ class Fangs extends Weapon implements Attributable {
         'Crunch' => 5,
         'Swing' => 1
     ];
+    protected $disabledAttributes;
     protected $default_attack = 'Bite';
 
-    public function passAttributes(): array {
+    public function getPassedAttributes(): array {
         $attributes = [];
-        if (rand() % 2) {
-            $attributes[] = new Bleed();
+        if(!$this->disabledAttributes){
+
+            if (rand() % 2) {
+                $attributes[] = new Bleed();
+            }
         }
         return $attributes;
     }
@@ -30,5 +34,10 @@ class Fangs extends Weapon implements Attributable {
 
     public function removeAttribute(string $name) {
         //Fangs are not affected by attributes
+    }
+
+    public function setDisabledPassedAttributes(bool $disabled)
+    {
+        $this->disabledAttributes = $disabled;
     }
 }

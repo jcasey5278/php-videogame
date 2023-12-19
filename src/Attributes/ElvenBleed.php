@@ -8,6 +8,7 @@ class ElvenBleed extends Bleed {
 
 
     public function getBleed() {
-        return -$this->object->getHealth() * 0.75;
+        return - $this->object->getHealth() * 0.75;
     }
+    
 }
