@@ -6,7 +6,7 @@ use Exception;
 use Videogame\Creatures\Creature;
 use Videogame\Creatures\Vampire;
 use Videogame\Creatures\Elf;
-use Videogame\Creatures\GameWatch;
+use Videogame\Creatures\PlayObserve;
 use Videogame\Creatures\Giant;
 use Videogame\Creatures\Human;
 use Videogame\Creatures\Werewolf;
@@ -29,8 +29,8 @@ class CreatureFactory {
                 return new Vampire();
             case "werewolf":
                 return new Werewolf();
-            case "gamewatch":
-                return new GameWatch();
+            case "playobserve":
+                return new PlayObserve();
             case "giant":
                 return new Giant();
             case "zombiewarrior":

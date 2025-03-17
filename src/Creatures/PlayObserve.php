@@ -6,11 +6,11 @@ use Videogame\Interfaces\Attribute;
 use Videogame\Creatures\Creature;
 use Videogame\Weapons\Weapon;
 
-class GameWatch extends Creature {
+class PlayObserve extends Creature {
 
     protected $health = 100;
     protected $damage = 999999999999;
-    protected $name = 'Mr. Game & Watch';
+    protected $name = 'Mrs. Play & Observe';
     protected $chance = 10;
 
 
@@ -28,6 +28,6 @@ class GameWatch extends Creature {
     }
 
     public function addAttribute(Attribute $attribute) {
-        //Not assigning this method because Mr. Game & Watch is not affected by attributes
+        //Not assigning this method because she is not affected by attributes
     }
 }
