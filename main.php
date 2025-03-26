@@ -10,15 +10,16 @@ $characterFactory = new CharacterFactory();
 $creatures = [
     [
         'creature' => 'shadowdwarf',
-        'weapon' => 'fangs',
+        'weapon' => 'strong-poisondagger',
         'attributes' => []
     ],
     [
-        'creature' => 'zombiedog',
-        'weapon' => '',
+        'creature' => 'shadowmonarch',
+        'weapon' => 'poisondagger',
         'attributes' => ['']
     ]
 ];
+
 $dwarfFactory = new DwarvenFactory();
 $characterFactory->setCreatureFactory($dwarfFactory);
 

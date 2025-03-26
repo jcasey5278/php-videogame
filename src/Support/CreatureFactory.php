@@ -9,6 +9,7 @@ use Videogame\Creatures\Elf;
 use Videogame\Creatures\PlayObserve;
 use Videogame\Creatures\Giant;
 use Videogame\Creatures\Human;
+use Videogame\Creatures\ShadowMonarch;
 use Videogame\Creatures\Werewolf;
 use Videogame\Creatures\Zombie;
 use Videogame\Creatures\ZombieDog;
@@ -33,6 +34,8 @@ class CreatureFactory {
                 return new PlayObserve();
             case "giant":
                 return new Giant();
+            case "shadowmonarch":
+                return new ShadowMonarch();
             case "zombiewarrior":
                 // return new ZombieWarrior();
                 
