@@ -12,7 +12,6 @@ class Fangs extends Weapon implements Attributable {
     protected $attacks = [
         'Bite' => 8,
         'Crunch' => 5,
-        'Swing' => 1
     ];
     protected $disabledAttributes;
     protected $default_attack = 'Bite';
